@@ -371,7 +371,7 @@ export default function Portfolio() {
                 <BrainCircuit size={24} />
               </div>
               <h4 className="text-xl font-display font-bold mb-4">Approche Analytique</h4>
-              <p className="text-muted-foreground text-sm">Chaque décision de design ou de code est justifiée par les données et la logique.</p>
+              <p className="text-muted-foreground text-sm">Chaque décision est justifiée par les données et la logique.</p>
             </motion.div>
 
             <motion.div 
