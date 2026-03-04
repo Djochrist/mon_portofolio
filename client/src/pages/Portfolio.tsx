@@ -14,7 +14,6 @@ import {
   BrainCircuit
 } from "lucide-react";
 import { NeonButton } from "@/components/NeonButton";
-import { AnimatedCounter } from "@/components/AnimatedCounter";
 import profilePhoto from "@assets/profile/profil.jpg";
 import projectBlc from "@assets/projet/blc.png";
 import projectDataInsightHub from "@assets/projet/Data-Insight-Hub.png";
@@ -106,33 +105,15 @@ export default function Portfolio() {
             variants={staggerContainer}
             className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center"
           >
-            <motion.div variants={fadeInUp} className="lg:col-span-5">
+            <motion.div variants={fadeInUp} className="lg:col-span-12">
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
                 L'obsession du <span className="text-primary">détail.</span>
               </h2>
               <p className="text-muted-foreground text-lg mb-6">
-                Avec 2 ans d'expérience  en développement et analyse, mon approche se résume en un mot.
+                Avec mes années d'expérience  en développement et analyse, mon approche se résume en un mot.
               </p>
               <div className="inline-block border border-primary/30 bg-primary/5 px-6 py-3 box-glow mb-8">
                 <span className="font-display text-xl text-foreground">Mentalité : <span className="text-primary font-bold">Grind</span></span>
-              </div>
-            </motion.div>
-            
-            <motion.div variants={fadeInUp} className="lg:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="border border-border/50 bg-background p-8 relative overflow-hidden group">
-                <div className="absolute top-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
-                <div className="text-5xl text-primary mb-2"><AnimatedCounter value={15} suffix="+" /></div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wider font-mono">Projets livrés</div>
-              </div>
-              <div className="border border-border/50 bg-background p-8 relative overflow-hidden group">
-                <div className="absolute top-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
-                <div className="text-5xl text-primary mb-2"><AnimatedCounter value={2} /></div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wider font-mono">Années d'exp.</div>
-              </div>
-              <div className="border border-border/50 bg-background p-8 relative overflow-hidden group">
-                <div className="absolute top-0 left-0 w-full h-[2px] bg-primary scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></div>
-                <div className="text-5xl text-primary mb-2"><AnimatedCounter value={30} suffix="+" /></div>
-                <div className="text-sm text-muted-foreground uppercase tracking-wider font-mono">Analyses</div>
               </div>
             </motion.div>
           </motion.div>
