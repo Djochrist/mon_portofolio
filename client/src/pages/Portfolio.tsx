@@ -70,7 +70,7 @@ export default function Portfolio() {
             </motion.h1>
             
             <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-muted-foreground max-w-3xl mb-12 font-light leading-relaxed">
-              Analyse statistique rigoureuse et solutions web sur mesure pour startups et entreprises.
+              J&apos;aide les entreprises à comprendre leurs données pour prendre des décisions plus éclairées grâce aux statistiques, et à gagner en crédibilité avec des sites web modernes.
             </motion.p>
             
             <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-6">
@@ -153,6 +153,7 @@ export default function Portfolio() {
                 <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0 mt-1" size={18}/> Analyse de Corrélations</li>
                 <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0 mt-1" size={18}/> Modélisation Prédictive</li>
                 <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0 mt-1" size={18}/> Data Visualisation Avancée</li>
+                <li className="flex items-start gap-3"><CheckCircle2 className="text-primary shrink-0 mt-1" size={18}/> Analyse de Trafic Web</li>
               </ul>
             </motion.div>
 
@@ -169,22 +170,98 @@ export default function Portfolio() {
               </div>
               <h3 className="text-2xl md:text-3xl font-display font-bold mb-6">Web Development</h3>
               
-              <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-                Création d'interfaces web performantes, esthétiques et optimisées pour la conversion. Des vitrines aux plateformes interactives sur mesure.
-              </p>
-
               <ul className="space-y-4 text-muted-foreground">
-                <li className="flex items-start gap-3"><Terminal className="text-primary shrink-0 mt-1" size={18}/> Sites Vitrines Premium</li>
-                <li className="flex items-start gap-3"><Terminal className="text-primary shrink-0 mt-1" size={18}/> Dashboards & Interfaces Data</li>
-                <li className="flex items-start gap-3"><Terminal className="text-primary shrink-0 mt-1" size={18}/> Intégration Maquettes</li>
-                <li className="flex items-start gap-3"><Terminal className="text-primary shrink-0 mt-1" size={18}/> Optimisation UI/UX</li>
+                <li className="flex items-start gap-3"><Terminal className="text-primary shrink-0 mt-1" size={18}/> Site pour entreprise</li>
+                <li className="flex items-start gap-3"><Terminal className="text-primary shrink-0 mt-1" size={18}/> Site pour organisation</li>
+                <li className="flex items-start gap-3"><Terminal className="text-primary shrink-0 mt-1" size={18}/> Landing page</li>
+                <li className="flex items-start gap-3"><Terminal className="text-primary shrink-0 mt-1" size={18}/> Optimisation SEO</li>
               </ul>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* 4. PROJECTS SECTION */}
+      {/* 4. TOOLS SECTION */}
+      <section className="py-32 px-6 sm:px-12 lg:px-24 bg-slate-50/60 border-y border-border/40">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={fadeInUp}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl md:text-6xl font-display font-bold mb-4">
+              Mes <span className="text-primary">Tools</span>
+            </h2>
+            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+              Une boîte à outils pensée pour analyser, construire et livrer des solutions digitales solides.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="relative overflow-hidden rounded-3xl border border-border bg-white/80 p-10 shadow-sm"
+            >
+              <div className="absolute top-0 right-0 h-40 w-40 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+              <div className="relative">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <Database size={28} />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-display font-bold">Data</h3>
+                    <p className="text-muted-foreground">Des outils concrets pour lire, structurer et interpréter les données.</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {["Excel", "R", "Google Analytics", "Statistiques avec Python", "Web Scraping avec Python"].map((tool) => (
+                    <div key={tool} className="rounded-2xl border border-border bg-background/70 px-5 py-4 text-sm font-medium text-foreground">
+                      {tool}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true, margin: "-100px" }}
+              variants={fadeInUp}
+              className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 shadow-sm"
+            >
+              <div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
+              <div className="relative">
+                <div className="flex items-center gap-4 mb-8">
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                    <LineChart size={28} />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl md:text-3xl font-display font-bold">Web</h3>
+                    <p className="text-muted-foreground">Une stack moderne pour créer des interfaces rapides, fluides et professionnelles.</p>
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  {["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite", "Node.js", "Express", "Radix UI / shadcn/ui"].map((tool) => (
+                    <div key={tool} className="rounded-2xl border border-border bg-background/70 px-5 py-4 text-sm font-medium text-foreground">
+                      {tool}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. PROJECTS SECTION */}
       <section id="projets" className="py-32 px-6 sm:px-12 lg:px-24 bg-slate-50/50">
         <div className="max-w-7xl mx-auto">
           <motion.div
