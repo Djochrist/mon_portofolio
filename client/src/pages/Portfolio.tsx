@@ -8,6 +8,7 @@ import {
   ArrowUpRight, 
   CheckCircle2, 
   MessageSquare, 
+  MessageCircle,
   FileText, 
   Clock,
   TrendingUp,
@@ -324,17 +325,17 @@ export default function Portfolio() {
               <motion.div
                 key={title}
                 variants={fadeInUp}
-                className="self-start border border-border bg-card/50 p-8 transition-all group hover:border-primary/30 hover:bg-card"
+                className="self-start border border-border bg-card p-8 transition-all group hover:border-primary/30 hover:bg-card box-glow-hover sm:p-10"
               >
-                <div className="w-12 h-12 rounded-full bg-background border border-primary/20 text-primary flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform box-glow">
-                  <Icon size={24} />
+                <div className="w-16 h-16 bg-primary/10 flex items-center justify-center text-primary mb-8 rounded-none">
+                  <Icon size={32} />
                 </div>
-                <h3 className="text-xl font-display font-bold mb-4 text-center">{title}</h3>
-                <p className="mb-5 text-center text-sm leading-relaxed text-muted-foreground">{description}</p>
+                <h3 className="text-2xl md:text-3xl font-display font-bold mb-6">{title}</h3>
+                <p className="mb-8 text-lg leading-relaxed text-muted-foreground">{description}</p>
 
                 <ul className="grid grid-cols-2 gap-3 text-sm text-muted-foreground">
                   {items.map((tool) => (
-                    <li key={tool} className="flex items-center justify-center text-center overflow-hidden">
+                    <li key={tool} className="flex items-center justify-start overflow-hidden">
                       <span className="inline-flex max-w-full items-center justify-center rounded-full bg-primary/8 px-3 py-2 text-sm font-medium text-primary/90 shadow-sm transition-all duration-300 group-hover:-translate-y-0.5 group-hover:bg-primary/12 group-hover:shadow-md break-normal whitespace-normal text-center">
                         {getToolBadge(tool)}
                       </span>
@@ -586,21 +587,20 @@ export default function Portfolio() {
               TRAVAILLONS <br/><span className="text-primary text-glow">ENSEMBLE.</span>
             </motion.h2>
             
-            <motion.div variants={fadeInUp} className="mb-16">
-              <a 
-                href="mailto:djochristkfreelance@gmail.com" 
-                className="text-xl md:text-3xl font-mono text-muted-foreground hover:text-white transition-colors border-b border-muted-foreground/30 hover:border-primary pb-2 interactive"
-              >
-                djochristkfreelance@gmail.com
-              </a>
-            </motion.div>
-
-            <motion.div variants={fadeInUp}>
+            <motion.div variants={fadeInUp} className="mt-4 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
               <NeonButton 
                 href="mailto:djochristkfreelance@gmail.com" 
                 className="text-xl px-12 py-6 font-bold"
               >
                 DÉMARRER UN PROJET
+              </NeonButton>
+              <NeonButton
+                href="https://wa.me/243819730124"
+                variant="outline"
+                external
+                className="text-xl px-12 py-6 font-bold"
+              >
+                ÉCRIRE SUR WHATSAPP
               </NeonButton>
             </motion.div>
           </motion.div>
