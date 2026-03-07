@@ -106,10 +106,6 @@ export default function Portfolio() {
               grâce aux données et renforcez votre présence digitale.
             </motion.h1>
 
-            <motion.p variants={fadeInUp} className="mb-4 text-lg font-semibold uppercase tracking-[0.24em] text-primary/80 sm:text-sm">
-              Analyse stratégique. Image digitale premium.
-            </motion.p>
-
             <motion.p variants={fadeInUp} className="mb-10 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-xl md:mb-12 md:text-2xl">
               J&apos;accompagne les entreprises dans l&apos;analyse de leurs données pour orienter des décisions plus éclairées, tout en concevant des sites web modernes qui renforcent leur crédibilité.
             </motion.p>
@@ -187,9 +183,9 @@ export default function Portfolio() {
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16"
+            className="grid grid-cols-1 items-center gap-10"
           >
-            <motion.div variants={fadeInUp} className="lg:col-span-8">
+            <motion.div variants={fadeInUp} className="max-w-3xl">
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
                 L'obsession du <span className="text-primary">détail.</span>
               </h2>
@@ -198,14 +194,6 @@ export default function Portfolio() {
               </p>
               <div className="inline-block border border-primary/30 bg-primary/5 px-6 py-3 box-glow mb-8">
                 <span className="font-display text-xl text-foreground">Mentalité : <span className="text-primary font-bold">Grind</span></span>
-              </div>
-            </motion.div>
-            <motion.div variants={fadeInUp} className="lg:col-span-4">
-              <div className="rounded-3xl border border-primary/15 bg-white/80 p-6 shadow-sm backdrop-blur-sm">
-                <div className="mb-3 text-xs font-mono uppercase tracking-[0.24em] text-primary">Positionnement</div>
-                <p className="text-base leading-relaxed text-muted-foreground">
-                  Une approche hybride entre rigueur statistique et design moderne pour produire des solutions lisibles, utiles et crédibles.
-                </p>
               </div>
             </motion.div>
           </motion.div>
