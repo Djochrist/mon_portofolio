@@ -15,8 +15,8 @@
   --popover: 0 0% 100%;
   --popover-foreground: 222 47% 11%;
   
-  /* Modern Professional Blue */
-  --primary: 221 83% 53%; 
+  /* Modern Premium Teal */
+  --primary: 173 72% 36%;
   --primary-foreground: 210 40% 98%;
   
   --secondary: 210 40% 96.1%;
@@ -33,7 +33,7 @@
   
   --border: 214 32% 91%;
   --input: 214 32% 91%;
-  --ring: 221 83% 53%;
+  --ring: 173 72% 36%;
 
   --radius: 1.5rem; /* Larger border-radius for modern feel */
 
@@ -66,7 +66,7 @@
 
 @layer utilities {
   .text-glow {
-    text-shadow: 0 0 10px rgba(59, 130, 246, 0.2);
+    text-shadow: 0 0 10px rgba(22, 163, 148, 0.22);
   }
   
   .box-glow {

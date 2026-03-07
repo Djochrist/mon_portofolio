@@ -36,24 +36,61 @@ const staggerContainer = {
   }
 };
 
+const staggerCards = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: { staggerChildren: 0.12, delayChildren: 0.08 }
+  }
+};
+
+const getToolBadge = (tool: string) => {
+  const customBadges: Record<string, string> = {
+    Python: "Python",
+    Pandas: "Pandas",
+    NumPy: "NumPy",
+    "Scikit-learn": "SKL",
+    Matplotlib: "MPL",
+    Seaborn: "Seaborn",
+    Plotly: "Plotly",
+    SQL: "SQL",
+    "Web Scraping (BeautifulSoup, Scrapy)": "Scraping",
+    "API Data": "API",
+    Streamlit: "Streamlit",
+    Dash: "Dash",
+    React: "React",
+    TypeScript: "TS",
+    "Tailwind CSS": "Tailwind",
+    Git: "Git",
+    GitHub: "GitHub",
+    "Jupyter Notebook": "Jupyter",
+    Excel: "Excel",
+    "Google Analytics": "Analytics",
+  };
+
+  return customBadges[tool] ?? tool;
+};
+
 export default function Portfolio() {
   return (
     <div className="bg-background min-h-screen overflow-x-hidden text-foreground">
       
       {/* 1. HERO SECTION */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 px-6 sm:px-12 lg:px-24 bg-gradient-to-b from-blue-50 to-white">
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-slate-50 via-emerald-50/70 to-white px-5 pt-28 pb-16 sm:px-10 sm:pt-24 sm:pb-20 lg:px-24">
         {/* Abstract background elements */}
-        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-primary/5 rounded-full blur-[120px] pointer-events-none"></div>
-        <div className="absolute bottom-1/4 left-1/4 w-[300px] h-[300px] bg-primary/10 rounded-full blur-[100px] pointer-events-none"></div>
+        <div className="absolute top-1/4 right-1/4 h-[500px] w-[500px] rounded-full bg-primary/5 blur-[120px] pointer-events-none"></div>
+        <div className="absolute bottom-1/4 left-1/4 h-[300px] w-[300px] rounded-full bg-primary/10 blur-[100px] pointer-events-none"></div>
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
+        <div className="absolute left-0 right-0 top-[22%] hidden h-px bg-gradient-to-r from-transparent via-primary/10 to-transparent lg:block"></div>
         
-        <div className="max-w-5xl mx-auto z-10 w-full">
+        <div className="z-10 mx-auto grid w-full max-w-6xl grid-cols-1 items-center gap-12 lg:grid-cols-[minmax(0,1fr)_260px] lg:gap-16">
           <motion.div
             initial="hidden"
             animate="visible"
             variants={staggerContainer}
           >
-            <motion.div variants={fadeInUp} className="flex items-center gap-5 mb-8">
-              <div className="relative h-24 w-24 sm:h-28 sm:w-28 md:h-32 md:w-32 rounded-full overflow-hidden border-2 border-primary/30 box-glow shrink-0 shadow-xl">
+            <motion.div variants={fadeInUp} className="mb-6 inline-flex items-center gap-3 rounded-full border border-primary/15 bg-white/80 px-4 py-2 shadow-sm backdrop-blur-sm sm:gap-5 sm:px-5 sm:py-3">
+              <div className="relative h-20 w-20 shrink-0 overflow-hidden rounded-full border-2 border-primary/30 shadow-xl box-glow sm:h-24 sm:w-24 md:h-28 md:w-28">
                 <img src={profilePhoto} alt="Photo de profil — Djochrist K." className="h-full w-full object-cover" />
               </div>
               <div>
@@ -64,29 +101,76 @@ export default function Portfolio() {
               </div>
             </motion.div>
             
-            <motion.h1 variants={fadeInUp} className="text-5xl sm:text-6xl md:text-8xl font-display font-bold text-foreground leading-[1.1] mb-8">
-              Transformez vos données en <br className="hidden md:block"/>
-              <span className="text-primary text-glow">décisions stratégiques.</span>
+            <motion.h1 variants={fadeInUp} className="mb-6 text-2xl font-display font-bold leading-[1.12] tracking-tight text-foreground sm:text-4xl md:mb-8 md:text-6xl">
+              Prenez de meilleures décisions <br className="hidden md:block"/>
+              grâce aux données et renforcez votre présence digitale.
             </motion.h1>
-            
-            <motion.p variants={fadeInUp} className="text-xl md:text-2xl text-muted-foreground max-w-3xl mb-12 font-light leading-relaxed">
-              J&apos;aide les entreprises à comprendre leurs données pour prendre des décisions plus éclairées grâce aux statistiques, et à gagner en crédibilité avec des sites web modernes.
+
+            <motion.p variants={fadeInUp} className="mb-4 text-lg font-semibold uppercase tracking-[0.24em] text-primary/80 sm:text-sm">
+              Analyse stratégique. Image digitale premium.
             </motion.p>
-            
-            <motion.div variants={fadeInUp} className="flex flex-col sm:flex-row gap-6">
+
+            <motion.p variants={fadeInUp} className="mb-10 max-w-3xl text-lg leading-relaxed text-muted-foreground sm:text-xl md:mb-12 md:text-2xl">
+              J&apos;accompagne les entreprises dans l&apos;analyse de leurs données pour orienter des décisions plus éclairées, tout en concevant des sites web modernes qui renforcent leur crédibilité.
+            </motion.p>
+
+            <motion.div variants={fadeInUp} className="flex flex-col gap-4 sm:flex-row sm:gap-6">
               <NeonButton href="mailto:djochristkfreelance@gmail.com">
                 ME CONTACTER
+              </NeonButton>
+              <NeonButton href="#services" variant="outline">
+                MES SERVICES
+              </NeonButton>
+              <NeonButton href="#stack" variant="outline">
+                MON STACK
               </NeonButton>
               <NeonButton href="#projets" variant="outline">
                 VOIR MES PROJETS
               </NeonButton>
             </motion.div>
           </motion.div>
+
+          <motion.div
+            initial="hidden"
+            animate="visible"
+            variants={staggerCards}
+            className="grid gap-4 sm:grid-cols-3 lg:grid-cols-1"
+          >
+            {[
+              {
+                icon: TrendingUp,
+                title: "Décisions plus sûres",
+                text: "Des analyses qui clarifient vos priorités et réduisent l'incertitude."
+              },
+              {
+                icon: LineChart,
+                title: "Présence plus forte",
+                text: "Des interfaces modernes qui renforcent la confiance autour de votre marque."
+              },
+              {
+                icon: Code2,
+                title: "Exécution soignée",
+                text: "Un rendu propre, rapide et pensé pour valoriser votre activité."
+              }
+            ].map(({ icon: Icon, title, text }) => (
+              <motion.div
+                key={title}
+                variants={fadeInUp}
+                className="rounded-3xl border border-white/60 bg-white/75 p-6 shadow-lg shadow-slate-200/40 backdrop-blur-sm"
+              >
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-primary/10 text-primary">
+                  <Icon size={22} />
+                </div>
+                <h3 className="mb-2 text-lg font-display font-bold text-foreground">{title}</h3>
+                <p className="text-sm leading-relaxed text-muted-foreground">{text}</p>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
         
         {/* Scroll indicator */}
         <motion.div 
-          className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50"
+          className="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-2 opacity-50 md:flex"
           animate={{ y: [0, 10, 0] }}
           transition={{ repeat: Infinity, duration: 2, ease: "easeInOut" }}
         >
@@ -96,24 +180,32 @@ export default function Portfolio() {
       </section>
 
       {/* 2. ABOUT SECTION */}
-      <section id="about" className="py-24 px-6 sm:px-12 lg:px-24 bg-card/30 border-y border-border/50">
+      <section id="about" className="border-y border-border/50 bg-card/30 px-5 py-20 sm:px-10 sm:py-24 lg:px-24">
         <div className="max-w-7xl mx-auto">
           <motion.div 
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
-            className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center"
+            className="grid grid-cols-1 items-center gap-10 lg:grid-cols-12 lg:gap-16"
           >
-            <motion.div variants={fadeInUp} className="lg:col-span-12">
+            <motion.div variants={fadeInUp} className="lg:col-span-8">
               <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
                 L'obsession du <span className="text-primary">détail.</span>
               </h2>
-              <p className="text-muted-foreground text-lg mb-6">
+              <p className="text-muted-foreground text-base sm:text-lg mb-6">
                 Avec mes années d'expérience  en développement et analyse, mon approche se résume en un mot.
               </p>
               <div className="inline-block border border-primary/30 bg-primary/5 px-6 py-3 box-glow mb-8">
                 <span className="font-display text-xl text-foreground">Mentalité : <span className="text-primary font-bold">Grind</span></span>
+              </div>
+            </motion.div>
+            <motion.div variants={fadeInUp} className="lg:col-span-4">
+              <div className="rounded-3xl border border-primary/15 bg-white/80 p-6 shadow-sm backdrop-blur-sm">
+                <div className="mb-3 text-xs font-mono uppercase tracking-[0.24em] text-primary">Positionnement</div>
+                <p className="text-base leading-relaxed text-muted-foreground">
+                  Une approche hybride entre rigueur statistique et design moderne pour produire des solutions lisibles, utiles et crédibles.
+                </p>
               </div>
             </motion.div>
           </motion.div>
@@ -121,27 +213,32 @@ export default function Portfolio() {
       </section>
 
       {/* 3. SERVICES SECTION */}
-      <section className="py-32 px-6 sm:px-12 lg:px-24">
+      <section id="services" className="relative px-5 py-24 sm:px-10 sm:py-28 lg:px-24 lg:py-32">
+        <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/20 to-transparent"></div>
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="mb-16"
+            className="mb-12 sm:mb-16"
           >
             <h2 className="text-4xl md:text-6xl font-display font-bold">Mes <span className="text-primary">Services</span></h2>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerCards}
+            className="grid grid-cols-1 gap-6 lg:grid-cols-2 lg:gap-8"
+          >
             {/* Service 1: Data */}
             <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
-              className="border border-border p-10 lg:p-14 bg-card hover:border-primary/50 transition-colors duration-500 relative group overflow-hidden box-glow-hover"
+              className="relative overflow-hidden border border-border bg-card p-8 transition-colors duration-500 group hover:border-primary/50 box-glow-hover sm:p-10 lg:p-14"
             >
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary/70 to-primary/10"></div>
               <div className="w-16 h-16 bg-primary/10 flex items-center justify-center text-primary mb-8 rounded-none">
                 <BarChart3 size={32} />
               </div>
@@ -159,12 +256,10 @@ export default function Portfolio() {
 
             {/* Service 2: Web Dev */}
             <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
               variants={fadeInUp}
-              className="border border-border p-10 lg:p-14 bg-card hover:border-primary/50 transition-colors duration-500 relative group overflow-hidden box-glow-hover"
+              className="relative overflow-hidden border border-border bg-card p-8 transition-colors duration-500 group hover:border-primary/50 box-glow-hover sm:p-10 lg:p-14"
             >
+              <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-primary/70 to-primary/10"></div>
               <div className="w-16 h-16 bg-primary/10 flex items-center justify-center text-primary mb-8 rounded-none">
                 <Code2 size={32} />
               </div>
@@ -177,110 +272,116 @@ export default function Portfolio() {
                 <li className="flex items-start gap-3"><Terminal className="text-primary shrink-0 mt-1" size={18}/> Optimisation SEO</li>
               </ul>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* 4. TOOLS SECTION */}
-      <section className="py-32 px-6 sm:px-12 lg:px-24 bg-slate-50/60 border-y border-border/40">
+      {/* 4. STACK SECTION */}
+      <section id="stack" className="border-y border-border/40 bg-slate-50/60 px-5 py-24 sm:px-10 sm:py-28 lg:px-24 lg:py-32">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="text-center mb-16"
+            className="mb-12 sm:mb-16"
           >
             <h2 className="text-4xl md:text-6xl font-display font-bold mb-4">
-              Mes <span className="text-primary">Tools</span>
+              Mon <span className="text-primary">Stack</span>
             </h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Une boîte à outils pensée pour analyser, construire et livrer des solutions digitales solides.
+            <p className="text-muted-foreground text-lg max-w-2xl">
+              Les technologies et outils que j’utilise pour analyser, construire et livrer des solutions solides.
             </p>
           </motion.div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={fadeInUp}
-              className="relative overflow-hidden rounded-3xl border border-border bg-white/80 p-10 shadow-sm"
-            >
-              <div className="absolute top-0 right-0 h-40 w-40 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
-              <div className="relative">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <Database size={28} />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-display font-bold">Data</h3>
-                    <p className="text-muted-foreground">Des outils concrets pour lire, structurer et interpréter les données.</p>
-                  </div>
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerCards}
+            className="grid grid-cols-1 items-start gap-6 md:grid-cols-2 xl:grid-cols-5 xl:gap-8"
+          >
+            {[
+              {
+                icon: Database,
+                title: "Data",
+                description: "Les bibliothèques et langages que j’utilise pour explorer, modéliser et visualiser les données.",
+                items: ["Python", "Pandas", "NumPy", "Scikit-learn", "Matplotlib", "Seaborn", "Plotly", "SQL"],
+              },
+              {
+                icon: BarChart3,
+                title: "Data Collection",
+                description: "Des outils pour collecter des données fiables depuis le web ou des services externes.",
+                items: ["Web Scraping (BeautifulSoup, Scrapy)", "API Data"],
+              },
+              {
+                icon: LineChart,
+                title: "Data Apps",
+                description: "Des frameworks utiles pour transformer l’analyse en applications interactives et démonstratives.",
+                items: ["Streamlit", "Dash"],
+              },
+              {
+                icon: Code2,
+                title: "Web",
+                description: "Une base moderne pour concevoir des interfaces rapides, propres et agréables à utiliser.",
+                items: ["React", "TypeScript", "Tailwind CSS"],
+              },
+              {
+                icon: Terminal,
+                title: "Tools",
+                description: "Les outils transverses que j’utilise pour travailler proprement, documenter et collaborer.",
+                items: ["Git", "GitHub", "Jupyter Notebook", "Excel", "Google Analytics"],
+              },
+            ].map(({ icon: Icon, title, description, items }) => (
+              <motion.div
+                key={title}
+                variants={fadeInUp}
+                className="self-start border border-border bg-card/50 p-8 transition-all group hover:border-primary/30 hover:bg-card"
+              >
+                <div className="w-12 h-12 rounded-full bg-background border border-primary/20 text-primary flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform box-glow">
+                  <Icon size={24} />
                 </div>
+                <h3 className="text-xl font-display font-bold mb-4 text-center">{title}</h3>
+                <p className="mb-5 text-center text-sm leading-relaxed text-muted-foreground">{description}</p>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {["Excel", "R", "Google Analytics", "Statistiques avec Python", "Web Scraping avec Python"].map((tool) => (
-                    <div key={tool} className="rounded-2xl border border-border bg-background/70 px-5 py-4 text-sm font-medium text-foreground">
-                      {tool}
-                    </div>
+                <ul className="grid grid-cols-2 gap-3 text-sm text-muted-foreground">
+                  {items.map((tool) => (
+                    <li key={tool} className="flex items-center justify-center text-center overflow-hidden">
+                      <span className="inline-flex max-w-full items-center justify-center rounded-full bg-primary/8 px-3 py-2 text-sm font-medium text-primary/90 shadow-sm transition-all duration-300 group-hover:-translate-y-0.5 group-hover:bg-primary/12 group-hover:shadow-md break-normal whitespace-normal text-center">
+                        {getToolBadge(tool)}
+                      </span>
+                    </li>
                   ))}
-                </div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-100px" }}
-              variants={fadeInUp}
-              className="relative overflow-hidden rounded-3xl border border-border bg-card p-10 shadow-sm"
-            >
-              <div className="absolute bottom-0 left-0 h-40 w-40 rounded-full bg-primary/10 blur-3xl pointer-events-none"></div>
-              <div className="relative">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-primary/10 text-primary">
-                    <LineChart size={28} />
-                  </div>
-                  <div>
-                    <h3 className="text-2xl md:text-3xl font-display font-bold">Web</h3>
-                    <p className="text-muted-foreground">Une stack moderne pour créer des interfaces rapides, fluides et professionnelles.</p>
-                  </div>
-                </div>
-
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  {["React", "TypeScript", "Tailwind CSS", "Framer Motion", "Vite", "Node.js", "Express", "Radix UI / shadcn/ui"].map((tool) => (
-                    <div key={tool} className="rounded-2xl border border-border bg-background/70 px-5 py-4 text-sm font-medium text-foreground">
-                      {tool}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
+                </ul>
+              </motion.div>
+            ))}
+          </motion.div>
         </div>
       </section>
 
       {/* 5. PROJECTS SECTION */}
-      <section id="projets" className="py-32 px-6 sm:px-12 lg:px-24 bg-slate-50/50">
+      <section id="projets" className="bg-slate-50/50 px-5 py-24 sm:px-10 sm:py-28 lg:px-24 lg:py-32">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6"
+            className="mb-12 flex flex-col gap-6 md:mb-16 md:flex-row md:items-end md:justify-between"
           >
             <h2 className="text-4xl md:text-6xl font-display font-bold">Travaux <br/><span className="text-primary">Récents</span></h2>
             <p className="text-muted-foreground max-w-md">Une sélection d'applications web et de plateformes de données conçues pour générer de l'impact.</p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-50px" }}
+            variants={staggerCards}
+            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 lg:gap-8"
+          >
             {/* Project 1 */}
             <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               variants={fadeInUp}
               className="group block bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-100"
             >
@@ -317,9 +418,6 @@ export default function Portfolio() {
 
             {/* Project 2 */}
             <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               variants={fadeInUp}
               className="group block bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-100"
             >
@@ -356,9 +454,6 @@ export default function Portfolio() {
 
             {/* Project 3 */}
             <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true, margin: "-50px" }}
               variants={fadeInUp}
               className="group block bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-slate-100"
             >
@@ -392,12 +487,12 @@ export default function Portfolio() {
                 </div>
               </div>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 5. GALLERY MARQUEE SECTION */}
-      <section className="py-24 overflow-hidden border-y border-border/30 bg-background relative">
+      <section className="relative overflow-hidden border-y border-border/30 bg-background py-20 sm:py-24">
         <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent z-10"></div>
         <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent z-10"></div>
         
@@ -423,26 +518,29 @@ export default function Portfolio() {
       </section>
 
       {/* 6. WHY ME SECTION */}
-      <section className="py-32 px-6 sm:px-12 lg:px-24">
+      <section className="px-5 py-24 sm:px-10 sm:py-28 lg:px-24 lg:py-32">
         <div className="max-w-7xl mx-auto">
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={fadeInUp}
-            className="text-center mb-20"
+            className="mb-14 text-center sm:mb-20"
           >
             <h2 className="text-4xl md:text-5xl font-display font-bold mb-6">Pourquoi travailler avec <span className="text-primary">moi ?</span></h2>
             <div className="h-1 w-20 bg-primary mx-auto"></div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={staggerCards}
+            className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4 lg:gap-8"
+          >
             <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
               variants={fadeInUp}
-              className="p-8 border border-border bg-card/50 text-center group hover:bg-card hover:border-primary/30 transition-all"
+              className="border border-border bg-card/50 p-8 text-center transition-all group hover:border-primary/30 hover:bg-card"
             >
               <div className="w-12 h-12 rounded-full bg-background border border-primary/50 flex items-center justify-center text-primary mx-auto mb-6 group-hover:scale-110 transition-transform box-glow">
                 <BrainCircuit size={24} />
@@ -452,11 +550,8 @@ export default function Portfolio() {
             </motion.div>
 
             <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
               variants={fadeInUp}
-              className="p-8 border border-border bg-card/50 text-center group hover:bg-card hover:border-primary/30 transition-all"
+              className="border border-border bg-card/50 p-8 text-center transition-all group hover:border-primary/30 hover:bg-card"
             >
               <div className="w-12 h-12 rounded-full bg-background border border-primary/50 flex items-center justify-center text-primary mx-auto mb-6 group-hover:scale-110 transition-transform box-glow">
                 <MessageSquare size={24} />
@@ -466,11 +561,8 @@ export default function Portfolio() {
             </motion.div>
 
             <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
               variants={fadeInUp}
-              className="p-8 border border-border bg-card/50 text-center group hover:bg-card hover:border-primary/30 transition-all"
+              className="border border-border bg-card/50 p-8 text-center transition-all group hover:border-primary/30 hover:bg-card"
             >
               <div className="w-12 h-12 rounded-full bg-background border border-primary/50 flex items-center justify-center text-primary mx-auto mb-6 group-hover:scale-110 transition-transform box-glow">
                 <FileText size={24} />
@@ -480,11 +572,8 @@ export default function Portfolio() {
             </motion.div>
 
             <motion.div 
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
               variants={fadeInUp}
-              className="p-8 border border-border bg-card/50 text-center group hover:bg-card hover:border-primary/30 transition-all"
+              className="border border-border bg-card/50 p-8 text-center transition-all group hover:border-primary/30 hover:bg-card"
             >
               <div className="w-12 h-12 rounded-full bg-background border border-primary/50 flex items-center justify-center text-primary mx-auto mb-6 group-hover:scale-110 transition-transform box-glow">
                 <Clock size={24} />
@@ -492,12 +581,12 @@ export default function Portfolio() {
               <h4 className="text-xl font-display font-bold mb-4">Respect des Délais</h4>
               <p className="text-muted-foreground text-sm">Engagement absolu sur les timelines. La ponctualité est le socle de la confiance.</p>
             </motion.div>
-          </div>
+          </motion.div>
         </div>
       </section>
 
       {/* 7. CONTACT SECTION */}
-      <section className="py-40 px-6 sm:px-12 lg:px-24 bg-gradient-to-t from-blue-50 to-white relative overflow-hidden">
+      <section className="relative overflow-hidden bg-gradient-to-t from-emerald-50/70 to-white px-5 py-28 sm:px-10 sm:py-36 lg:px-24 lg:py-40">
         <div className="max-w-4xl mx-auto text-center relative z-10">
           <motion.div
             initial="hidden"
